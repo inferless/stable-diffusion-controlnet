@@ -14,7 +14,7 @@ class InferlessPythonModel:
 
     def initialize(self):
         controlnet = ControlNetModel.from_pretrained("lllyasviel/sd-controlnet-canny", torch_dtype=torch.float16)
-        self.pipe = StableDiffusionControlNetInpaintPipeline.from_pretrained( "runwayml/stable-diffusion-inpainting", 
+        self.pipe = StableDiffusionControlNetInpaintPipeline.from_pretrained( "stable-diffusion-v1-5/stable-diffusion-inpainting", 
             controlnet=controlnet, 
             torch_dtype=torch.float16 )
 
