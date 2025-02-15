@@ -1,6 +1,6 @@
 version: 1.0.0
 
-name: Stablediffusion-controlnet
+name: stable-diffusion-controlnet
 import_source: GIT
 
 # you can choose the options between ONNX, TENSORFLOW, PYTORCH
@@ -40,6 +40,6 @@ optional:
   input_file_name: input.json
   output_file_name: output.json
   runtime_file_name: inferless-runtime-config.yaml
-model_url: https://github.com/inferless/Stablediffusion-controlnet.git
+model_url: https://github.com/inferless/stable-diffusion-controlnet.git
 provider: GITHUB
 io_schema: true
