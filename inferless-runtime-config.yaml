@@ -6,4 +6,5 @@ build:
     - "pillow==10.4.0"
     - "torch==2.4.1"
     - "transformers==4.44.2"
-    - "huggingface-hub==0.25.2"
+    - "hf-transfer==0.1.9"
+    - "huggingface-hub==0.29.1"
