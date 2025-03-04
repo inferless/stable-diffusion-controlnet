@@ -1,3 +1,6 @@
+import os
+os.environ["HF_HUB_ENABLE_HF_TRANSFER"]='1'
+from huggingface_hub import snapshot_download
 import PIL
 import requests
 import torch
@@ -13,10 +16,10 @@ class InferlessPythonModel:
         return PIL.Image.open(BytesIO(response.content)).convert("RGB")
 
     def initialize(self):
+        model_id = "stable-diffusion-v1-5/stable-diffusion-inpainting"
+        snapshot_download(repo_id=model_id,allow_patterns=["*.ckpt"])
         controlnet = ControlNetModel.from_pretrained("lllyasviel/sd-controlnet-canny", torch_dtype=torch.float16)
-        self.pipe = StableDiffusionControlNetInpaintPipeline.from_pretrained( "stable-diffusion-v1-5/stable-diffusion-inpainting", 
-            controlnet=controlnet, 
-            torch_dtype=torch.float16 )
+        self.pipe = StableDiffusionControlNetInpaintPipeline.from_pretrained( model_id,controlnet=controlnet,torch_dtype=torch.float16)
 
         # speed up diffusion process with faster scheduler and memory optimization
         self.pipe.scheduler = UniPCMultistepScheduler.from_config(self.pipe.scheduler.config)
