@@ -21,58 +21,6 @@ Select PyTorch framework and choose **Repo(custom code)** as your model source a
 
 Enter all the required details to Import your model. Refer [this link](https://docs.inferless.com/integrations/github-custom-code) for more information on model import.
 
-The following is a sample Input and Output JSON for this model which you can use while importing this model on Inferless.
-
-### Input
-```json
-{
-   "inputs":[
-   {    
-    "name": "prompt",
-    "shape": [1],
-    "datatype": "BYTES",
-    "data":  ["Face of a yellow cat, high resolution, sitting on a park bench"]
-   },
-   {    
-    "name": "image_url",
-    "shape": [1],
-    "datatype": "BYTES",
-    "data":  ["https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png"]
-   },
-   {    
-    "name": "control_url",
-    "shape": [1],
-    "datatype": "BYTES",
-    "data":  ["https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo.png"]
-   },
-   {    
-    "name": "mask_url",
-    "shape": [1],
-    "datatype": "BYTES",
-    "data":  ["https://raw.githubusercontent.com/CompVis/latent-diffusion/main/data/inpainting_examples/overture-creations-5sI6fQgYIuo_mask.png"]
-   }
-  ]
-}
-```
-
-### Output
-```json
-{
-  "outputs": [
-    {
-      "data": [
-        "<base_64_image>"
-      ],
-      "name": "generated_image_base64",
-      "shape": [
-        1
-      ],
-      "datatype": "BYTES"
-    }
-  ]
-}
-```
-
 ## Curl Command
 Following is an example of the curl command you can use to make inference. You can find the exact curl command in the Model's API page in Inferless.
 
